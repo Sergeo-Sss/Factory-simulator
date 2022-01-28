@@ -13,6 +13,10 @@ public class Brus_fabric : MonoBehaviour
     public GameObject[] snapzones;
     public GameObject brus;
 
+    private GameObject[] objects = new GameObject[9];
+
+    public GameObject snappoint;
+
     private int i = 0;
     private bool isstart = false;
 
@@ -20,7 +24,10 @@ public class Brus_fabric : MonoBehaviour
     private void Start()
     {
         cntdnw = res;
+       
         StartCoroutine(Wait());
+        
+       
     }
 
     IEnumerator Wait()
@@ -31,47 +38,69 @@ public class Brus_fabric : MonoBehaviour
         {
             i = 0;
         }
+        for (int k=0;k<snapzones.Length;k++)
+        {
+            if (snapzones[k].GetComponent<CheckMat>().isYes == false)
+            {
+                i = k;
+                break;
+            }
+        }
         if (snapzones[i].GetComponent<CheckMat>().isYes == false)
         {
-            GameObject go = Instantiate(brus, snapzones[i].transform.position, snapzones[i].transform.rotation);
+            GameObject go = Instantiate(brus, snappoint.transform.position, snappoint.transform.rotation);
+            objects[i] = go;
             go.transform.SetParent(snapzones[i].transform);
             snapzones[i].GetComponent<CheckMat>().isYes = true;
-
         }
         
         i++;
         StartCoroutine(Wait());
     }
 
+
+    IEnumerator LerpNum(Vector3 go, Vector3 spawn, GameObject obj)
+    {
+        while (Vector3.Distance(go,spawn)>0.01f)
+        {
+            obj.transform.position = Vector3.Lerp(obj.transform.position,spawn,1f);
+        }
+        yield return null;
+    }
     
     void Update()
     {
-        //for (int i=0;i<snapzones.Length;i++)
-        //{
-        //    if (snapzones[i].GetComponent<CheckMat>().isYes == false)
-        //    {
-        //        isstart = false;
-        //    }
-        //}
-        if (isstart)
+        int check = 0;
+        for (int i = 0; i < snapzones.Length; i++)
+        {
+            if (snapzones[i].GetComponent<CheckMat>().isYes == true)
+            {
+                check++;
+
+            }
+        }
+        if (isstart && check != snapzones.Length)
         {
             if (cntdnw > 0)
             {
                 cntdnw -= Time.deltaTime;
             }
             double b = System.Math.Round(cntdnw, 0);
-            timerText.text = "Next through "+b.ToString()+" "+"...";
+            timerText.text = "Next through " + b.ToString() + " " + "...";
+           
             if (cntdnw < 0)
             {
                 cntdnw = res;
                 isstart = false;
-               
+
             }
-            
+
         }
-        else
+        else if (isstart && check == snapzones.Length)
         {
-            timerText.text = "No";
+            timerText.text = "There is no place in the warehouse.";
+            snappoint.GetComponent<LerpFabric>().SetMassiv(objects, snapzones);
+            snappoint.GetComponent<LerpFabric>().isStart = true;
         }
     }
 }

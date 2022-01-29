@@ -22,7 +22,29 @@ public class PlayerController : MonoBehaviour
 
     private GameObject obj_spawn;
 
+    private bool ischild = false;
 
+
+    private void Update()
+    {
+
+        if (ischild)
+        {
+            for (int i = 0; i < snap_point.transform.childCount; i++)
+            {
+                if (i == 0)
+                {
+                    snap_point.transform.GetChild(i).localPosition = new Vector3(0,0,0);
+
+                }
+                else
+                {
+                    snap_point.transform.GetChild(i).localPosition = new Vector3(snap_point.transform.GetChild(i-1).localPosition.x+0.1f, snap_point.transform.GetChild(i-1).localPosition.y, snap_point.transform.GetChild(i-1).localPosition.z);
+                }
+            }
+            ischild = false;
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -86,6 +108,17 @@ public class PlayerController : MonoBehaviour
         {
             lerpto1fabric = true;
             readobj = other.gameObject;
+
+            bool check = false;
+            for (int i = 0; i < snap_point.transform.childCount; i++)
+            {
+                if (snap_point.transform.GetChild(i).GetComponent<LerpObj>().isready)
+                {
+                    check = true;
+                }
+            }
+            if (!check)
+                ischild = true;
         }
         if (other.gameObject.tag == "snap2")
         {

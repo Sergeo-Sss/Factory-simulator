@@ -8,6 +8,7 @@ public class LerpObj : MonoBehaviour
     public GameObject snappoint;
     public GameObject spawnpoint;
 
+    public bool isready=false;
 
     private void FixedUpdate()
     {
@@ -28,6 +29,7 @@ public class LerpObj : MonoBehaviour
 
         if (GameObject.Find("Player").GetComponent<PlayerController>().gotofinal)
         {
+            
             if (this.gameObject.tag == "carbon")
             {
                 if (this.gameObject.transform.parent != null)
@@ -43,6 +45,7 @@ public class LerpObj : MonoBehaviour
                         GameObject.FindGameObjectWithTag("final").GetComponent<CarbonHouse>().KolvoCarb++;
                         spawnpoint.transform.position = new Vector3(spawnpoint.transform.position.x, spawnpoint.transform.position.y - 1, spawnpoint.transform.position.z);
                         GameObject.Find("Player").GetComponent<PlayerController>().gotofinal = false;
+                        
                     }
                 }
             }
@@ -68,10 +71,12 @@ public class LerpObj : MonoBehaviour
 
         if (GameObject.Find("Player").GetComponent<PlayerController>().lerpto1fabric)
         {
+            
             if (this.gameObject.tag=="brus")
             {
                 if (this.gameObject.transform.parent != null)
                 {
+                    isready = true;
                     if (Mathf.Abs(Vector3.Distance(this.gameObject.transform.position, GameObject.Find("Player").GetComponent<PlayerController>().readobj.transform.position)) > 0.01f)
                     {
                         this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, GameObject.Find("Player").GetComponent<PlayerController>().readobj.transform.position, 15f * Time.deltaTime);
@@ -84,6 +89,7 @@ public class LerpObj : MonoBehaviour
                         GameObject.FindGameObjectWithTag("factory2").GetComponent<FabricLogic>().kolvomat++;
                         spawnpoint.transform.position = new Vector3(spawnpoint.transform.position.x, spawnpoint.transform.position.y - 1, spawnpoint.transform.position.z);
                         GameObject.Find("Player").GetComponent<PlayerController>().lerpto1fabric = false;
+                      
                     }
                 }
             }

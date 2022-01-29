@@ -16,8 +16,8 @@ public class CarbonHouse : MonoBehaviour
 
     private void Update()
     {
-        text.text = KolvoCarb.ToString()+ "/5 carbon blocks";
-        if (KolvoCarb==1)
+        text.text = KolvoCarb.ToString()+ "/3 carbon blocks";
+        if (KolvoCarb==3)
         {
             GameObject.Find("Floating Joystick").GetComponent<FloatingJoystick>().enabled=false;
             UI_victory.SetActive(true);

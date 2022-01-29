@@ -9,7 +9,6 @@ To edit the source code, you will need:
 > Visual Studio 2019
 ### Downloading the project:
 You can download the whole project, or use Git.
-### Setup:
-\\\
+
 ## Feedback
 Any comments and suggestions are accepted by mail sergeo.sss@yandex.ru

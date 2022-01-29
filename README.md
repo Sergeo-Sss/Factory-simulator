@@ -1,5 +1,5 @@
 # Factory-simulator
----
+
 A casual game for the production of various resources in factories.
 
 ## Getting Started!

@@ -9,15 +9,13 @@ public class LerpObj : MonoBehaviour
     public GameObject spawnpoint;
 
 
-
     private void FixedUpdate()
     {
         if (isLerp)
         {
-         
             if (Mathf.Abs(Vector3.Distance(this.gameObject.transform.position, spawnpoint.transform.position)) > 0.01f)
             {
-                this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, spawnpoint.transform.position, 10f * Time.deltaTime);
+                this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, spawnpoint.transform.position, 15f * Time.deltaTime);
             }
             else
             {
@@ -28,27 +26,111 @@ public class LerpObj : MonoBehaviour
             }
         }
 
-        if (GameObject.Find("Player").GetComponent<PlayerController>().lerpto1fabric)
+        if (GameObject.Find("Player").GetComponent<PlayerController>().gotofinal)
         {
-            if (this.gameObject.transform.parent!=null)
+            if (this.gameObject.tag == "carbon")
             {
-                if (Mathf.Abs(Vector3.Distance(this.gameObject.transform.position, GameObject.Find("Player").GetComponent<PlayerController>().readobj.transform.position)) > 0.01f)
+                if (this.gameObject.transform.parent != null)
                 {
-                    this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, GameObject.Find("Player").GetComponent<PlayerController>().readobj.transform.position, 10f * Time.deltaTime);
-                }
-                else
-                {
-                    //       this.gameObject.transform.SetParent(null);
-                    Destroy(this.gameObject);
-                    GameObject.Find("Player").GetComponent<PlayerController>().KolvoMat--;
-                    GameObject.FindGameObjectWithTag("factory2").GetComponent<FabricLogic>().kolvomat++;
-                    spawnpoint.transform.position = new Vector3(spawnpoint.transform.position.x, spawnpoint.transform.position.y - 1, spawnpoint.transform.position.z);
-                    GameObject.Find("Player").GetComponent<PlayerController>().lerpto1fabric = false;
+                    if (Mathf.Abs(Vector3.Distance(this.gameObject.transform.position, GameObject.Find("Player").GetComponent<PlayerController>().readobj.transform.position)) > 0.01f)
+                    {
+                        this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, GameObject.Find("Player").GetComponent<PlayerController>().readobj.transform.position, 15f * Time.deltaTime);
+                    }
+                    else
+                    {
+                        Destroy(this.gameObject);
+                        GameObject.Find("Player").GetComponent<PlayerController>().KolvoMat--;
+                        GameObject.FindGameObjectWithTag("final").GetComponent<CarbonHouse>().KolvoCarb++;
+                        spawnpoint.transform.position = new Vector3(spawnpoint.transform.position.x, spawnpoint.transform.position.y - 1, spawnpoint.transform.position.z);
+                        GameObject.Find("Player").GetComponent<PlayerController>().gotofinal = false;
+                    }
                 }
             }
-               
+            else
+            {
+                if (this.gameObject.transform.parent != null)
+                {
+                    if (Mathf.Abs(Vector3.Distance(this.gameObject.transform.position, GameObject.Find("Player").GetComponent<PlayerController>().readobj.transform.position)) > 0.01f)
+                    {
+                        this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, GameObject.Find("Player").GetComponent<PlayerController>().readobj.transform.position, 15f * Time.deltaTime);
+                    }
+                    else
+                    {
+                        Destroy(this.gameObject);
+                        GameObject.Find("Player").GetComponent<PlayerController>().KolvoMat--;
+                        spawnpoint.transform.position = new Vector3(spawnpoint.transform.position.x, spawnpoint.transform.position.y - 1, spawnpoint.transform.position.z);
+                        GameObject.Find("Player").GetComponent<PlayerController>().gotofinal = false;
+                    }
+                }
+            }
 
-            
+        }
+
+        if (GameObject.Find("Player").GetComponent<PlayerController>().lerpto1fabric)
+        {
+            if (this.gameObject.tag=="brus")
+            {
+                if (this.gameObject.transform.parent != null)
+                {
+                    if (Mathf.Abs(Vector3.Distance(this.gameObject.transform.position, GameObject.Find("Player").GetComponent<PlayerController>().readobj.transform.position)) > 0.01f)
+                    {
+                        this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, GameObject.Find("Player").GetComponent<PlayerController>().readobj.transform.position, 15f * Time.deltaTime);
+                    }
+                    else
+                    {
+                        //       this.gameObject.transform.SetParent(null);
+                        Destroy(this.gameObject);
+                        GameObject.Find("Player").GetComponent<PlayerController>().KolvoMat--;
+                        GameObject.FindGameObjectWithTag("factory2").GetComponent<FabricLogic>().kolvomat++;
+                        spawnpoint.transform.position = new Vector3(spawnpoint.transform.position.x, spawnpoint.transform.position.y - 1, spawnpoint.transform.position.z);
+                        GameObject.Find("Player").GetComponent<PlayerController>().lerpto1fabric = false;
+                    }
+                }
+            }
+
+        }
+
+        if (GameObject.Find("Player").GetComponent<PlayerController>().lerpto2fabric)
+        {
+            if (this.gameObject.tag == "brus")
+            {
+                if (this.gameObject.transform.parent != null)
+                {
+                    if (Mathf.Abs(Vector3.Distance(this.gameObject.transform.position, GameObject.Find("Player").GetComponent<PlayerController>().readobj.transform.position)) > 0.01f)
+                    {
+                        this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, GameObject.Find("Player").GetComponent<PlayerController>().readobj.transform.position, 15f * Time.deltaTime);
+                    }
+                    else
+                    {
+                        //       this.gameObject.transform.SetParent(null);
+                        Destroy(this.gameObject);
+                        GameObject.Find("Player").GetComponent<PlayerController>().KolvoMat--;
+                        GameObject.FindGameObjectWithTag("factory3").GetComponent<FabricLogic>().kolvomat_a2++;
+                        spawnpoint.transform.position = new Vector3(spawnpoint.transform.position.x, spawnpoint.transform.position.y - 1, spawnpoint.transform.position.z);
+                        GameObject.Find("Player").GetComponent<PlayerController>().lerpto2fabric = false;
+                    }
+                }
+            }
+            else if (this.gameObject.tag == "ugol")
+            {
+                if (this.gameObject.transform.parent != null)
+                {
+                    if (Mathf.Abs(Vector3.Distance(this.gameObject.transform.position, GameObject.Find("Player").GetComponent<PlayerController>().readobj.transform.position)) > 0.01f)
+                    {
+                        this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, GameObject.Find("Player").GetComponent<PlayerController>().readobj.transform.position, 15f * Time.deltaTime);
+                    }
+                    else
+                    {
+                        //       this.gameObject.transform.SetParent(null);
+                        Destroy(this.gameObject);
+                        GameObject.Find("Player").GetComponent<PlayerController>().KolvoMat--;
+                        GameObject.FindGameObjectWithTag("factory3").GetComponent<FabricLogic>().kolvomat_b2++;
+                        spawnpoint.transform.position = new Vector3(spawnpoint.transform.position.x, spawnpoint.transform.position.y - 1, spawnpoint.transform.position.z);
+                        GameObject.Find("Player").GetComponent<PlayerController>().lerpto2fabric = false;
+                    }
+                }
+            }
+
         }
     }
 }

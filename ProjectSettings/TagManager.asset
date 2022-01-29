@@ -12,6 +12,8 @@ TagManager:
   - snap_zone
   - dum_tag
   - factory2
+  - factory3
+  - final
   layers:
   - Default
   - TransparentFX

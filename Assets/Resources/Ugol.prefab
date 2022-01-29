@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3988327166400587847}
   - component: {fileID: 7358489690223376254}
   - component: {fileID: 6598676089325714263}
+  - component: {fileID: 361049921502496514}
   m_Layer: 0
   m_Name: Ugol
   m_TagString: ugol
@@ -112,3 +113,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &361049921502496514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3988327166400587833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3eee9a4f89932a4b841495bdfd741d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isLerp: 0
+  snappoint: {fileID: 0}
+  spawnpoint: {fileID: 0}

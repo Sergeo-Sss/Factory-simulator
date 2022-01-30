@@ -13460,8 +13460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33e19da6a22259d4299a67d51a3c65f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7
-  turnSpeed: 100
+  speed: 6
   floatingJoy: {fileID: 743709459}
 --- !u!143 &998417808
 CharacterController:
@@ -26960,7 +26959,7 @@ Transform:
   m_GameObject: {fileID: 1934604002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 12.63, y: 0.9, z: 1.97}
-  m_LocalScale: {x: 3, y: 0.01, z: 3}
+  m_LocalScale: {x: 4, y: 0.01, z: 4}
   m_Children: []
   m_Father: {fileID: 1627401244}
   m_RootOrder: 13
@@ -29141,7 +29140,7 @@ Transform:
   m_GameObject: {fileID: 2101734320}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 12.63, y: 0.9, z: 1.97}
-  m_LocalScale: {x: 3, y: 0.01, z: 3}
+  m_LocalScale: {x: 4, y: 0.01, z: 4}
   m_Children: []
   m_Father: {fileID: 1046357458}
   m_RootOrder: 13

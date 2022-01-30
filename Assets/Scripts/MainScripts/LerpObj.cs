@@ -16,7 +16,7 @@ public class LerpObj : MonoBehaviour
         {
             if (Mathf.Abs(Vector3.Distance(this.gameObject.transform.position, spawnpoint.transform.position)) > 0.01f)
             {
-                this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, spawnpoint.transform.position, 15f * Time.deltaTime);
+                this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, spawnpoint.transform.position, 20f * Time.deltaTime);
             }
             else
             {
@@ -34,9 +34,9 @@ public class LerpObj : MonoBehaviour
             {
                 if (this.gameObject.transform.parent != null)
                 {
-                    if (Mathf.Abs(Vector3.Distance(this.gameObject.transform.position, GameObject.Find("Player").GetComponent<PlayerController>().readobj.transform.position)) > 0.01f)
+                    if (Mathf.Abs(Vector3.Distance(this.gameObject.transform.position, GameObject.Find("Player").GetComponent<PlayerController>().readobj.transform.position)) > 0.4f)
                     {
-                        this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, GameObject.Find("Player").GetComponent<PlayerController>().readobj.transform.position, 15f * Time.deltaTime);
+                        this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, GameObject.Find("Player").GetComponent<PlayerController>().readobj.transform.position, 20f * Time.deltaTime);
                     }
                     else
                     {
@@ -53,9 +53,9 @@ public class LerpObj : MonoBehaviour
             {
                 if (this.gameObject.transform.parent != null)
                 {
-                    if (Mathf.Abs(Vector3.Distance(this.gameObject.transform.position, GameObject.Find("Player").GetComponent<PlayerController>().readobj.transform.position)) > 0.01f)
+                    if (Mathf.Abs(Vector3.Distance(this.gameObject.transform.position, GameObject.Find("Player").GetComponent<PlayerController>().readobj.transform.position)) > 0.4f)
                     {
-                        this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, GameObject.Find("Player").GetComponent<PlayerController>().readobj.transform.position, 15f * Time.deltaTime);
+                        this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, GameObject.Find("Player").GetComponent<PlayerController>().readobj.transform.position, 20f * Time.deltaTime);
                     }
                     else
                     {
@@ -77,13 +77,12 @@ public class LerpObj : MonoBehaviour
                 if (this.gameObject.transform.parent != null)
                 {
                     isready = true;
-                    if (Mathf.Abs(Vector3.Distance(this.gameObject.transform.position, GameObject.Find("Player").GetComponent<PlayerController>().readobj.transform.position)) > 0.01f)
+                    if (Mathf.Abs(Vector3.Distance(this.gameObject.transform.position, GameObject.Find("Player").GetComponent<PlayerController>().readobj.transform.position)) > 0.4f)
                     {
-                        this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, GameObject.Find("Player").GetComponent<PlayerController>().readobj.transform.position, 15f * Time.deltaTime);
+                        this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, GameObject.Find("Player").GetComponent<PlayerController>().readobj.transform.position, 20f * Time.deltaTime);
                     }
                     else
                     {
-                        //       this.gameObject.transform.SetParent(null);
                         Destroy(this.gameObject);
                         GameObject.Find("Player").GetComponent<PlayerController>().KolvoMat--;
                         GameObject.FindGameObjectWithTag("factory2").GetComponent<FabricLogic>().kolvomat++;
@@ -102,13 +101,13 @@ public class LerpObj : MonoBehaviour
             {
                 if (this.gameObject.transform.parent != null)
                 {
-                    if (Mathf.Abs(Vector3.Distance(this.gameObject.transform.position, GameObject.Find("Player").GetComponent<PlayerController>().readobj.transform.position)) > 0.01f)
+                    isready = true;
+                    if (Mathf.Abs(Vector3.Distance(this.gameObject.transform.position, GameObject.Find("Player").GetComponent<PlayerController>().readobj.transform.position)) > 0.4f)
                     {
-                        this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, GameObject.Find("Player").GetComponent<PlayerController>().readobj.transform.position, 15f * Time.deltaTime);
+                        this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, GameObject.Find("Player").GetComponent<PlayerController>().readobj.transform.position, 20f * Time.deltaTime);
                     }
                     else
                     {
-                        //       this.gameObject.transform.SetParent(null);
                         Destroy(this.gameObject);
                         GameObject.Find("Player").GetComponent<PlayerController>().KolvoMat--;
                         GameObject.FindGameObjectWithTag("factory3").GetComponent<FabricLogic>().kolvomat_a2++;
@@ -121,13 +120,13 @@ public class LerpObj : MonoBehaviour
             {
                 if (this.gameObject.transform.parent != null)
                 {
-                    if (Mathf.Abs(Vector3.Distance(this.gameObject.transform.position, GameObject.Find("Player").GetComponent<PlayerController>().readobj.transform.position)) > 0.01f)
+                    isready = true;
+                    if (Mathf.Abs(Vector3.Distance(this.gameObject.transform.position, GameObject.Find("Player").GetComponent<PlayerController>().readobj.transform.position)) > 0.4f)
                     {
-                        this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, GameObject.Find("Player").GetComponent<PlayerController>().readobj.transform.position, 15f * Time.deltaTime);
+                        this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, GameObject.Find("Player").GetComponent<PlayerController>().readobj.transform.position, 20f * Time.deltaTime);
                     }
                     else
                     {
-                        //       this.gameObject.transform.SetParent(null);
                         Destroy(this.gameObject);
                         GameObject.Find("Player").GetComponent<PlayerController>().KolvoMat--;
                         GameObject.FindGameObjectWithTag("factory3").GetComponent<FabricLogic>().kolvomat_b2++;

@@ -124,6 +124,17 @@ public class PlayerController : MonoBehaviour
         {
             lerpto2fabric = true;
             readobj = other.gameObject;
+
+            bool check = false;
+            for (int i = 0; i < snap_point.transform.childCount; i++)
+            {
+                if (snap_point.transform.GetChild(i).GetComponent<LerpObj>().isready)
+                {
+                    check = true;
+                }
+            }
+            if (!check)
+                ischild = true;
         }
         if (other.gameObject.tag == "final")
         {

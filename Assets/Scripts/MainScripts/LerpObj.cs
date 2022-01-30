@@ -14,12 +14,13 @@ public class LerpObj : MonoBehaviour
     {
         if (isLerp)
         {
-            if (Mathf.Abs(Vector3.Distance(this.gameObject.transform.position, spawnpoint.transform.position)) > 0.01f)
+            if (Mathf.Abs(Vector3.Distance(this.gameObject.transform.position, spawnpoint.transform.position)) > 0.4f)
             {
                 this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, spawnpoint.transform.position, 20f * Time.deltaTime);
             }
             else
             {
+                this.gameObject.transform.localPosition = new Vector3(snappoint.transform.position.x,spawnpoint.transform.position.y, snappoint.transform.position.z); 
                 this.gameObject.transform.SetParent(snappoint.transform);
                 this.gameObject.transform.rotation = snappoint.transform.rotation;
                 spawnpoint.transform.position = new Vector3(spawnpoint.transform.position.x, spawnpoint.transform.position.y+1, spawnpoint.transform.position.z);
